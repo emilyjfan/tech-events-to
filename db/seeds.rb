@@ -1,5 +1,5 @@
 5.times do 
-  group = Group.create(name: Faker::Company.name, url: Faker::Internet.url)
+  group = Group.create(name: Faker::Company.name, url: Faker::Internet.url, image_url: Faker::Avatar.image)
   	10.times do
   		Event.create(
 		    name: Faker::Company.bs,
