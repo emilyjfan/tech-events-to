@@ -1,12 +1,13 @@
 5.times do 
-  Group.create(name: Faker::Company.name, url: Faker::Internet.url)
+  group = Group.create(name: Faker::Company.name, url: Faker::Internet.url)
   	10.times do
   		Event.create(
 		    name: Faker::Company.bs,
 		    date: Faker::Date.forward(23),
 		    location: Faker::Address.street_address, 
 		    description: Faker::Hacker.say_something_smart,
-		    url:Faker::Internet.url)
+		    url:Faker::Internet.url,
+  			group_id: group.id)
   	end
 end
 
