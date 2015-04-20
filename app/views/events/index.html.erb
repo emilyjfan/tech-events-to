@@ -3,6 +3,7 @@
 <% @events.each do |event| %> 
 
 	<div>
+		<%= image_tag event.group.image_url %>
 		<p>Event Name: <%= event.name %></p>
 		<p>By: <%= event.group.name %></p>
 		<p>Date: <%= event.date %> </p>
