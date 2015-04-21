@@ -1,15 +1,21 @@
 <h2>All Events</h2>
 
-<% @events.each do |event| %> 
+<ul>
+	<% @events.each do |event| %> 
+		<li> 
+			<p><%= event['name'] %><p>
+			<p>by <%= event['group']['name'] %><p>
+			<p>Time: <%= event['time'] %><p>
+			<p>Venue: 
+			<% if event['venue'] != nil %>
+				<%= event['venue']['name'] %>,
+				<%= event['venue']['address_1'] %>,
+				<%= event['venue']['city'] %>
+			<% end %>
+			</p>
+			<p>Description: <%= event['description'] %><p>
+			<p><%= event %></p>
 
-	<div>
-		<%= image_tag event.group.image_url %>
-		<p>Event Name: <%= event.name %></p>
-		<p>By: <%= event.group.name %></p>
-		<p>Date: <%= event.date %> </p>
-		<p>Location: <%= event.location %> </p>
-		<p>Description: <%= event.description %> </p>
-		<br>
-	</div>
-
-<% end %>
+		</li>
+	<% end %>	
+</ul>
