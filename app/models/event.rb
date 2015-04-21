@@ -5,12 +5,11 @@ class Event
   end
 
 	def self.all(options = {})
-		results = @client.fetch(:open_events, { city: 'Toronto', country: 'CA' })
+		response = @client.fetch(:open_events, { city: 'Toronto', country: 'CA' })
 	  
-	  results.map do |result|
-	  	new
+	  response.map do |r|
+	  	r.inspect
 	  end
 	end
-
 
 end
