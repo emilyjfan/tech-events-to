@@ -1,15 +1,17 @@
 class Event
-	
-  @client = RMeetup::Client.new do |config|
-    config.api_key = Figaro.env.meetup_api_key
-  end
+
+	attr_reader :event
 
 	def self.all(options = {})
 		response = @client.fetch(:open_events, { city: 'Toronto', country: 'CA' })
 	  
 	  response.map do |r|
-	  	r.inspect
+	  	r.event
 	  end
 	end
+  
+  @client = RMeetup::Client.new do |config|
+    config.api_key = Figaro.env.meetup_api_key
+  end
 
 end
