@@ -47,8 +47,8 @@ group :development, :test do
   #Add Faker gem 
   gem 'faker'
  	gem 'pry-rails'
- 	gem "better_errors"
-
+ 	gem 'better_errors'
+ 	gem 'rMeetup', '~> 2.1.0'
 
 end
 
