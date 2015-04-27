@@ -1,21 +1,22 @@
 <h2>All Events</h2>
 
-<ul>
+<ol>
 	<% @events.each do |event| %> 
-		<li> 
-			<p><%= event['name'] %><p>
-			<p>by <%= event['group']['name'] %><p>
-			<p>Time: <%= event['time'] %><p>
-			<p>Venue: 
-			<% if event['venue'] != nil %>
-				<%= event['venue']['name'] %>,
-				<%= event['venue']['address_1'] %>,
-				<%= event['venue']['city'] %>
-			<% end %>
-			</p>
-			<p>Description: <%= event['description'] %><p>
-			<p><%= event %></p>
 
-		</li>
+			<li> 
+				<p><%= event['name']	 %><p>
+				<p>by <%= event['group']['name'] %><p>
+				<p>Time: <%= event['time'] %><p>
+				<p>Venue: 
+				<% if event['venue'] != nil %>
+					<%= event['venue']['name'] %>,
+					<%= event['venue']['address_1'] %>,
+					<%= event['venue']['city'] %>
+				<% end %>
+				</p>
+					<p> <%= event %> </p>
+			</li>
+		
 	<% end %>	
-</ul>
+</ol>
+
