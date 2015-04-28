@@ -2,14 +2,15 @@
 <div class="container">
 		
 	<div class="row">
-		<h1>All Events</h1>
+		<h1>Tech Events in Toronto</h1>
 	</div>
 
 	<div class="row">
 		<% @events.each do |event| %> 
 			<h3> <%= link_to(event['name'], event['event_url'], target: :_blank)%>	 <h3>
 				<p>by <%= event['group']['name'] %><p>
-				<p>Time: <%= event['time'] %><p>
+				<p>Date: <%= Time.at(event['time']/1000).strftime("%A, %B %e, %Y") %><p>
+				<p>Time: <%= Time.at(event['time']/1000).strftime("%l:%M %p") %><p>
 <!-- 					<p> <%= event['description'].html_safe %>	 </p>
 -->					<p>Venue: 
 				<% if event['venue'] != nil %>
