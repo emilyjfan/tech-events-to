@@ -1,22 +1,25 @@
-<h2>All Events</h2>
 
-<ol>
-	<% @events.each do |event| %> 
+<div class="container">
+		
+	<div class="row">
+		<h1>All Events</h1>
+	</div>
 
-			<li> 
-				<p><%= event['name']	 %><p>
+	<div class="row">
+		<% @events.each do |event| %> 
+			<h3> <%= link_to(event['name'], event['event_url'], target: :_blank)%>	 <h3>
 				<p>by <%= event['group']['name'] %><p>
 				<p>Time: <%= event['time'] %><p>
-				<p>Venue: 
+<!-- 					<p> <%= event['description'].html_safe %>	 </p>
+-->					<p>Venue: 
 				<% if event['venue'] != nil %>
 					<%= event['venue']['name'] %>,
 					<%= event['venue']['address_1'] %>,
 					<%= event['venue']['city'] %>
 				<% end %>
 				</p>
-					<p> <%= event %> </p>
-			</li>
-		
-	<% end %>	
-</ol>
+		<% end %>	
+	</div>	
+
+</div>
 
