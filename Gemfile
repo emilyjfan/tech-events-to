@@ -27,7 +27,7 @@ gem 'figaro'
 
 gem 'twitter-bootstrap-rails'
 
-
+gem 'gmaps4rails'
 
 # Use ActiveModel has_secure_password
 # gem 'bcrypt', '~> 3.1.7'
