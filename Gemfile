@@ -25,7 +25,9 @@ gem 'sdoc', '~> 0.4.0', group: :doc
 
 gem 'figaro'
 
-gem "twitter-bootstrap-rails"
+gem 'twitter-bootstrap-rails'
+
+gem 'geocoder'
 
 
 # Use ActiveModel has_secure_password
