@@ -27,7 +27,6 @@ gem 'figaro'
 
 gem 'twitter-bootstrap-rails'
 
-gem 'geocoder'
 
 
 # Use ActiveModel has_secure_password
