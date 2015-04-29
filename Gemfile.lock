@@ -66,7 +66,6 @@ GEM
       thor (~> 0.14)
     globalid (0.3.5)
       activesupport (>= 4.1.0)
-    gmaps4rails (2.1.2)
     http (0.8.3)
       addressable (~> 2.3)
       http-form_data (~> 1.0.1)
@@ -167,7 +166,6 @@ GEM
     uglifier (2.7.1)
       execjs (>= 0.3.0)
       json (>= 1.8.0)
-    underscore-rails (1.8.2)
     web-console (2.1.2)
       activemodel (>= 4.0)
       binding_of_caller (>= 0.7.2)
@@ -183,7 +181,6 @@ DEPENDENCIES
   coffee-rails (~> 4.1.0)
   faker
   figaro
-  gmaps4rails
   jbuilder (~> 2.0)
   jquery-rails
   pry-rails
@@ -196,5 +193,4 @@ DEPENDENCIES
   turbolinks
   twitter-bootstrap-rails
   uglifier (>= 1.3.0)
-  underscore-rails
   web-console (~> 2.0)
