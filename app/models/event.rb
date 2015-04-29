@@ -1,6 +1,6 @@
 class Event
 
-	attr_reader :event, :name
+	attr_reader :event
 
 	def self.all(options = {})
 		response = @client.fetch(:open_events, {:city => "Toronto", :country => "CA", :topic => "softwaredev" })
@@ -9,7 +9,7 @@ class Event
 	  	r.event
 	  end
 	end
-  
+
   @client = RMeetup::Client.new do |config|
     config.api_key = Figaro.env.meetup_api_key
   end
