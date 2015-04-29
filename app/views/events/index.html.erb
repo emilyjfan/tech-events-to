@@ -31,7 +31,7 @@
 						<%= event['venue']['address_1'] %>,
 						<%= event['venue']['city'] %>
 					<% end %>
-				
+
 				</p>
 			<% end %>
 		<% end %>	
@@ -40,9 +40,11 @@
 
 
 <%= javascript_tag do %>
-
+	  window.events = <%= raw @events.map {|event| 
+			if event['venue'] != nil
+	  		{ latitude: event['venue']['lat'], longitude: event['venue']['lon'] }
+	  	end }.to_json %>
 <% end %>
-
 
 
 
