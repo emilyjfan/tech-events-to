@@ -6,27 +6,32 @@
 		<h2> Happening Today: <%= @today %> </h2>
 	</div>
 
-	<div id="map-canvas"></div>
+	<div class="row">
+		<div id="map-canvas"></div>		
+	</div>
 
 	<div class="row">
 		<% @events.each do |event| %> 
 
-			<% if @today == Time.at(event['time']/1000).strftime("%A, %B %e, %Y") %>
+			<% if @today == pretty_date(Time.at(event['time']/1000)) %>
 				<h3> <%= link_to(event['name'], event['event_url'], target: :_blank)%>	 <h3>
 				<p> by <%= event['group']['name'] %><p>
-				<p> Date: <%= Time.at(event['time']/1000).strftime("%A, %B %e, %Y") %><p>
-				<p> Time: <%= Time.at(event['time']/1000).strftime("%l:%M %p") %><p>
+				<p> Date: <%= pretty_date(Time.at(event['time']/1000)) %><p>
+				<p> Time: <%= pretty_time(Time.at(event['time']/1000)) %><p>
 				<p> Duration: 
+				
 					<% if event['duration'] != nil %>
 						<%= distance_of_time_in_words(event['duration']/1000) %>
 					<% end %>
+				
 				<p>Venue: 
+				
 					<% if event['venue'] != nil %>
 						<%= event['venue']['name'] %>,
 						<%= event['venue']['address_1'] %>,
 						<%= event['venue']['city'] %>
 					<% end %>
-				<!-- <%= event %> -->
+				
 				</p>
 			<% end %>
 		<% end %>	
