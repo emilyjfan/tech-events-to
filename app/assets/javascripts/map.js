@@ -1,5 +1,6 @@
 function Map(mapId){
 	this.mapId = mapId;
+	this.markers = [];
 }
 
 Map.prototype.init = function(latitude, longitude) {
@@ -11,9 +12,20 @@ Map.prototype.init = function(latitude, longitude) {
 	this.canvas = new google.maps.Map(this.mapId, options);
 }
 
+Map.prototype.addMarker = function(latitude, longitude) {
+	var options = {
+		position: {lat: latitude, lng: longitude},
+		map: this.canvas 
+	}
+	var myMarker = new google.maps.Marker(options);
+	this.markers.push(myMarker);
+}
+
+
 $(document).on('page:load ready', function(){
 	if ($('#map-canvas').length) {
 		var myMap = new Map($('#map-canvas')[0]);
 		myMap.init(43.6426, -79.3871);
+		myMap.addMarker(43.6426, -79.3871)
 	}
 });
