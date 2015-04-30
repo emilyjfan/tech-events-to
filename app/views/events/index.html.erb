@@ -20,13 +20,13 @@
 				<p> Time: <%= pretty_time(Time.at(event['time']/1000)) %><p>
 				<p> Duration: 
 				
-					<% if event['duration'] != nil %>
+					<% unless event['duration'].nil? %>
 						<%= distance_of_time_in_words(event['duration']/1000) %>
 					<% end %>
 				
 				<p>Venue: 
 				
-					<% if event['venue'] != nil %>
+					<% unless event['venue'].nil? %>
 						<%= event['venue']['name'] %>,
 						<%= event['venue']['address_1'] %>,
 						<%= event['venue']['city'] %>
@@ -41,7 +41,7 @@
 
 <%= javascript_tag do %>
 	  window.events = <%= raw @events.map {|event| 
-			if event['venue'] != nil
+			unless event['venue'].nil?
 	  		{ latitude: event['venue']['lat'], longitude: event['venue']['lon'] }
 	  	end }.to_json %>
 <% end %>
