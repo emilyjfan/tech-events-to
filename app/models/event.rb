@@ -1,6 +1,7 @@
 class Event
 
 	attr_reader :event
+	# cattr_accessor :client
 
 	def self.all(options = {})
 		response = @client.fetch(:open_events, {:city => "Toronto", :country => "CA", :topic => "softwaredev" })
@@ -13,7 +14,7 @@ class Event
 	def self.today 
 		response = @client.fetch(:open_events, {:city => "Toronto", :country => "CA", :topic => "softwaredev", :time => ',1d' })
 		  
-		  response.map do |r|
+		response.map do |r|
 	  	r.event
 	  end
 	end
