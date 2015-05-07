@@ -21,6 +21,19 @@ Map.prototype.addMarker = function(latitude, longitude) {
 	}
 	var myMarker = new google.maps.Marker(options);
 	this.markers.push(myMarker);
+	
+	var contentString = "Test text"
+
+	var infowindow = new google.maps.InfoWindow({
+		content: contentString
+	});
+
+	var that = this;
+
+	google.maps.event.addListener(myMarker, 'click', function() {
+	  console.log(myMarker);
+	  infowindow.open(that.canvas,myMarker);
+	});
 }
 
 
