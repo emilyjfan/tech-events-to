@@ -12,6 +12,8 @@ Map.prototype.init = function(latitude, longitude) {
 	this.canvas = new google.maps.Map(this.mapId, options);
 }
 
+
+
 Map.prototype.addMarker = function(latitude, longitude) {
 	var options = {
 		position: new google.maps.LatLng(latitude, longitude),
@@ -24,8 +26,6 @@ Map.prototype.addMarker = function(latitude, longitude) {
 
 $(document).on('page:load ready', function(){
 	if ($('#map-canvas').length) {
-    var latitude = $('#map-canvas').data('latitude');
-    var longitude = $('#map-canvas').data('longitude');
 
 		var myMap = new Map($('#map-canvas')[0]);
 		myMap.init(43.6426, -79.3871);
@@ -33,8 +33,10 @@ $(document).on('page:load ready', function(){
 
 		if (window.events) {
       events.forEach(function(coord) {
-        console.log(coord);
-        myMap.addMarker(parseFloat(coord.latitude), parseFloat(coord.longitude));
+      	if (coord != null) {
+	        console.log(coord);
+  	      myMap.addMarker(parseFloat(coord.latitude), parseFloat(coord.longitude));
+      	} 
       });
     }
 
