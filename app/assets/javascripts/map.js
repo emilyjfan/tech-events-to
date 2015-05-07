@@ -14,7 +14,7 @@ Map.prototype.init = function(latitude, longitude) {
 
 Map.prototype.addMarker = function(latitude, longitude) {
 	var options = {
-		position: {lat: latitude, lng: longitude},
+		position: new google.maps.LatLng(latitude, longitude),
 		map: this.canvas 
 	}
 	var myMarker = new google.maps.Marker(options);
@@ -29,7 +29,7 @@ $(document).on('page:load ready', function(){
 
 		var myMap = new Map($('#map-canvas')[0]);
 		myMap.init(43.6426, -79.3871);
-		myMap.addMarker(latitude, longitude)
+		// myMap.addMarker(latitude, longitude)
 
 		if (window.events) {
       events.forEach(function(coord) {
