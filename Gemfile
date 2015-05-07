@@ -44,13 +44,15 @@ group :development, :test do
   gem 'web-console', '~> 2.0'
 
   # Spring speeds up development by keeping your application running in the background. Read more: https://github.com/rails/spring
-  gem 'spring'
+  gem 'spring', '~> 1.3.5'
 
   #Add Faker gem 
   gem 'faker'
  	gem 'pry-rails'
  	gem 'better_errors'
  	gem 'rMeetup', '~> 2.1.0'
+ 	gem 'rspec'
+ 	gem 'rspec-rails'
 
 end
 
