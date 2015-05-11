@@ -12,29 +12,44 @@ Map.prototype.init = function(latitude, longitude) {
 	this.canvas = new google.maps.Map(this.mapId, options);
 }
 
+
+
 Map.prototype.addMarker = function(latitude, longitude) {
 	var options = {
-		position: {lat: latitude, lng: longitude},
+		position: new google.maps.LatLng(latitude, longitude),
 		map: this.canvas 
 	}
 	var myMarker = new google.maps.Marker(options);
 	this.markers.push(myMarker);
+	
+	var contentString = "Test text"
+
+	var infowindow = new google.maps.InfoWindow({
+		content: contentString
+	});
+
+	var that = this;
+
+	google.maps.event.addListener(myMarker, 'click', function() {
+	  console.log(myMarker);
+	  infowindow.open(that.canvas,myMarker);
+	});
 }
 
 
 $(document).on('page:load ready', function(){
 	if ($('#map-canvas').length) {
-    var latitude = $('#map-canvas').data('latitude');
-    var longitude = $('#map-canvas').data('longitude');
 
 		var myMap = new Map($('#map-canvas')[0]);
 		myMap.init(43.6426, -79.3871);
-		myMap.addMarker(latitude, longitude)
+		// myMap.addMarker(latitude, longitude)
 
 		if (window.events) {
       events.forEach(function(coord) {
-        console.log(coord);
-        myMap.addMarker(parseFloat(coord.latitude), parseFloat(coord.longitude));
+      	if (coord != null) {
+	        console.log(coord);
+  	      myMap.addMarker(parseFloat(coord.latitude), parseFloat(coord.longitude));
+      	} 
       });
     }
 

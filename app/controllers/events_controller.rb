@@ -1,7 +1,7 @@
 class EventsController < ApplicationController
 
 	def index
-		@events = Event.all
+		@events = Event.today
 		@today = Time.now.strftime("%A, %B %e, %Y")
 		
 	end
