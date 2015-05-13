@@ -31,7 +31,6 @@ Map.prototype.addMarker = function(latitude, longitude) {
 	var that = this;
 
 	google.maps.event.addListener(myMarker, 'click', function() {
-	  console.log(myMarker);
 	  infowindow.open(that.canvas,myMarker);
 	});
 }
@@ -47,7 +46,6 @@ $(document).on('page:load ready', function(){
 		if (window.events) {
       events.forEach(function(coord) {
       	if (coord != null) {
-	        console.log(coord);
   	      myMap.addMarker(parseFloat(coord.latitude), parseFloat(coord.longitude));
       	} 
       });
