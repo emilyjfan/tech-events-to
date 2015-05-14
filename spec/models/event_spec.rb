@@ -17,6 +17,6 @@ end
   it "sends request with the correct city, country and topic" do  	
  		response = Event.today
 
- 		expect(response).to_not eq(["event_details", "event_details2"])
+ 		expect(response).to eq(["event_details", "event_details2"])
   end
 end
