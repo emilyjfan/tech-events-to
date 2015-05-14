@@ -1,6 +1,7 @@
 Rails.application.routes.draw do
 
-resources :groups, only: [:index, :show]
+root to: 'events#index'
+
 resources :events, only: [:index, :show]
 
   # The priority is based upon order of creation: first created -> highest priority.
