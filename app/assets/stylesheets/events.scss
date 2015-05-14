@@ -4,15 +4,24 @@
 
 h1{
 	color: #FF059D;
+	font-size: 50px;
+}
+
+h2 {
+	color: #DF1ED5;
 }
 
 a {
 	color: #DF1ED5;
 }
 
+ol {
+	font-size: 24px;
+}
+
 #map-canvas { 
 	height: 500px; 
-	width: 700px;
+	width: 95%;
 	margin: 0; 
 	padding: 0;
 }
