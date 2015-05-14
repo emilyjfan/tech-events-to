@@ -11,14 +11,6 @@ class Event
 	  end
 	end
 
-	def self.today 
-		response = @client.fetch(:open_events, {:city => "Toronto", :country => "CA", :topic => "softwaredev", :time => ',1d' })
-		  
-		response.map do |r|
-	  	r.event
-	  end
-	end
-
   @client = RMeetup::Client.new do |config|
     config.api_key = Figaro.env.meetup_api_key
   end
