@@ -3,44 +3,50 @@
 		
 	<div class="row">
 		<h1>Tech Events in Toronto </h1>
-		<h2> Happening Today: <%= @today %> </h2>
-	</div>
+		<br>
+		<%= link_to("<", events_path , :date => (@date - 1.day)) %>
+		<%= @date.strftime("%A, %B %e, %Y") %>
+		<%= link_to(">", events_path , :date => (@date + 1.day)) %>
+ 	</div>
+
 
 	<div class="row">
 		<div id="map-canvas"></div>		
 	</div>
 
 	<div class="row">
-		<% @events.each do |event| %> 
-
-			<h3> <%= link_to(event['name'], event['event_url'], target: :_blank)%>	 <h3>
-			<p> by <%= event['group']['name'] %><p>
-			<p> Date: <%= pretty_date(Time.at(event['time']/1000)) %><p>
-			<p> Time: <%= pretty_time(Time.at(event['time']/1000)) %><p>
-			<p> Duration: 
-			
-				<% unless event['duration'].nil? %>
-					<%= distance_of_time_in_words(event['duration']/1000) %>
+		<ol>
+			<% @events.each do |event| %> 
+				<% if @date.strftime("%A, %B %e, %Y") == pretty_date(Time.at(event['time']/1000)) %>
+					<li>
+						<h3> <%= link_to(event['name'], event['event_url'], target: :_blank)%>	 <h3>
+						<p> by <%= event['group']['name'] %><p>
+						<p> Date: <%= pretty_date(Time.at(event['time']/1000)) %><p>
+						<p> Time: <%= pretty_time(Time.at(event['time']/1000)) %><p>
+						<p> Duration: 
+							<% unless event['duration'].nil? %>
+								<%= distance_of_time_in_words(event['duration']/1000) %>
+							<% end %>
+						<p>Venue: 
+							<% unless event['venue'].nil? %>
+								<%= event['venue']['name'] %>,
+								<%= event['venue']['address_1'] %>,
+								<%= event['venue']['city'] %>
+							<% end %>
+						</p>
+					</li>				
 				<% end %>
-			
-			<p>Venue: 
-			
-				<% unless event['venue'].nil? %>
-					<%= event['venue']['name'] %>,
-					<%= event['venue']['address_1'] %>,
-					<%= event['venue']['city'] %>
-				<% end %>
-			</p>
-		<% end %>
+			<% end %>
+		</ol>
 	</div>	
+
 </div>
 
-
 <%= javascript_tag do %>
-	  window.events = <%= raw @events.map {|event| 
-			unless event['venue'].nil?
-	  		{ latitude: event['venue']['lat'], longitude: event['venue']['lon'] }
-	  	end }.to_json %>
+  window.events = <%= raw @events.map {|event| 
+		unless event['venue'].nil? || pretty_date(Time.at(event['time']/1000)) != @date.strftime("%A, %B %e, %Y")
+  		{ latitude: event['venue']['lat'], longitude: event['venue']['lon'], eventname: event['name'] }
+  	end }.to_json %>
 <% end %>
 
 
