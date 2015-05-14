@@ -1,7 +1,7 @@
 <!DOCTYPE html>
 <html>
 <head>
-  <title>Tech Today</title>
+  <title>TechToday</title>
   <%= stylesheet_link_tag    'application', media: 'all', 'data-turbolinks-track' => true %>
   <%= javascript_include_tag "//maps.googleapis.com/maps/api/js?key=#{Figaro.env.google_maps_api_key}" %>
   <%= javascript_include_tag 'application', 'data-turbolinks-track' => true %>
@@ -11,6 +11,12 @@
 
 <%= yield %>
 
+<div class="container">
+	<br>
+	<div class="row col-lg-offset-5">
+		<p> Made with <3 by <%= link_to("Emily J. Fan", "https://twitter.com/emilyjustinefan",  target: :_blank) %> </p>		
+	</div>
+</div>
 
 </body>
 </html>
