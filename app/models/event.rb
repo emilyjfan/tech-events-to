@@ -1,4 +1,4 @@
-class RMeetup
+class Event
 
 	attr_reader :event
 	# cattr_accessor :client

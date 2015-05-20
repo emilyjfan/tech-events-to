@@ -1,4 +1,4 @@
-class RMeetupController < ApplicationController
+class EventsController < ApplicationController
 
 	def index
 		@events = RMeetup.all
