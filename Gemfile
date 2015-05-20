@@ -24,6 +24,8 @@ gem 'figaro'
 
 gem 'twitter-bootstrap-rails'
 
+gem 'rMeetup', require: 'rmeetup'
+
 # Use ActiveModel has_secure_password
 # gem 'bcrypt', '~> 3.1.7'
 
@@ -50,7 +52,6 @@ group :development, :test do
   gem 'sqlite3'
  	gem 'pry-rails'
  	gem 'better_errors'
- 	gem 'rMeetup', '~> 2.1.0'
  	gem 'rspec'
  	gem 'rspec-rails'
 
