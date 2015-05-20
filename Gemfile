@@ -24,7 +24,7 @@ gem 'figaro'
 
 gem 'twitter-bootstrap-rails'
 
-gem 'rMeetup', require: 'rmeetup'
+gem 'rMeetup'
 
 # Use ActiveModel has_secure_password
 # gem 'bcrypt', '~> 3.1.7'
