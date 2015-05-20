@@ -1,5 +1,7 @@
 class Event
 
+require 'rmeetup'
+
 	attr_reader :event
 	# cattr_accessor :client
 
