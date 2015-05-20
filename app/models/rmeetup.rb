@@ -1,6 +1,4 @@
-class Event
-
-require 'rmeetup'
+class RMeetup
 
 	attr_reader :event
 	# cattr_accessor :client
@@ -18,3 +16,4 @@ require 'rmeetup'
   end
 
 end
+

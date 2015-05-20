@@ -1,7 +1,7 @@
-class EventsController < ApplicationController
+class RMeetupController < ApplicationController
 
 	def index
-		@events = Event.all
+		@events = RMeetup.all
 		@date = Time.now.strftime("%A, %B %e, %Y")
 		
 	end
