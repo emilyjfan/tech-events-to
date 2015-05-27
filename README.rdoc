@@ -1,3 +1,5 @@
 == README
 
-A simple Rails app that displays today's tech events in Toronto using the Meetup.com API and the Google Maps API. 
+A simple Rails app that displays today's tech events in Toronto using the Meetup.com API and the Google Maps API. Users can easily find tech meetups, without having to go through the Meetup.com UI. 
+
+View it live at https://techtoday.herokuapp.com/. 
