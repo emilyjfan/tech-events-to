@@ -26,6 +26,8 @@ gem 'twitter-bootstrap-rails'
 
 gem 'rMeetup', require: 'rmeetup'
 
+gem 'jquery-ui-rails'
+
 # Use ActiveModel has_secure_password
 # gem 'bcrypt', '~> 3.1.7'
 
@@ -35,7 +37,7 @@ gem 'rMeetup', require: 'rmeetup'
 # Use Capistrano for deployment
 # gem 'capistrano-rails', group: :development
 
-group :production do 
+group :production do
 	# Use postgres as the database for Active Record
 	gem 'pg'
 end
