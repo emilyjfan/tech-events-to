@@ -1,0 +1,27 @@
+<% event_date = Time.at(event['time']/1000) %>
+
+<% if @date == event_date.to_date %>
+  <li>
+    <h3> <%= link_to(event['name'], event['event_url'], target: :_blank)%>   <h3>
+    <p> by <%= event['group']['name'] %><p>
+    <p> Date: <%= pretty_date(event_date) %><p>
+    <p> Time: <%= pretty_time(event_date) %><p>
+
+    <p> Duration:
+      <% if event['duration'].nil? %>
+        Not specified
+      <% else %>
+        <%= distance_of_time_in_words(event['duration']/1000) %>
+      <% end %>
+
+    <p>Venue:
+      <% if event['venue'].nil? %>
+        Not specified
+      <% else %>
+        <%= event['venue']['name'] %>,
+        <%= event['venue']['address_1'] %>,
+        <%= event['venue']['city'] %>
+      <% end %>
+    </p>
+  </li>
+<% end %>
