@@ -11,6 +11,7 @@
  		<%= form_for(:event, url: events_path, method: :get) do |f| %>
 	 		<%= f.text_field :date, placeholder: 'Select a date', onchange: "this.form.submit();" %>
  		<% end %>
+ 		<br>
  	</div>
 
 	<div class="row col-lg-offset-2 col-lg-8">
@@ -20,30 +21,10 @@
 	<div class="row col-lg-offset-2 col-lg-8">
 		<ol>
 			<% @events.each do |event| %>
-				<% event_date = Time.at(event['time']/1000) %>
-				<% if @date == event_date.to_date %>
-					<li>
-						<h3> <%= link_to(event['name'], event['event_url'], target: :_blank)%>	 <h3>
-						<p> by <%= event['group']['name'] %><p>
-						<p> Date: <%= pretty_date(event_date) %><p>
-						<p> Time: <%= pretty_time(event_date) %><p>
-						<p> Duration:
-							<% unless event['duration'].nil? %>
-								<%= distance_of_time_in_words(event['duration']/1000) %>
-							<% end %>
-						<p>Venue:
-							<% unless event['venue'].nil? %>
-								<%= event['venue']['name'] %>,
-								<%= event['venue']['address_1'] %>,
-								<%= event['venue']['city'] %>
-							<% end %>
-						</p>
-					</li>
-				<% end %>
+					<%= render partial: 'event', locals: {event: event} %>
 			<% end %>
 		</ol>
 	</div>
-
 </div>
 
 <%= javascript_tag do %>

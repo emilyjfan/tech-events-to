@@ -5,7 +5,7 @@ class Event
 
 	def self.all(options = {})
 		response = @client.fetch(:open_events, {:city => "Toronto", :country => "CA", :topic => "softwaredev" })
-	  
+
 	  response.map do |r|
 	  	r.event
 	  end
