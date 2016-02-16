@@ -7,21 +7,24 @@
 		</div>
 		<h3> // A simpler way to find tech events in Toronto // </h2>
 		<h2>Events Happening On: <%= pretty_date(@date) %></h2>
- 		<br>
  		<%= form_for(:event, url: events_path, method: :get) do |f| %>
-	 		<%= f.text_field :date, placeholder: 'Select a date', onchange: "this.form.submit();" %>
+	 		<h3>Pick a date:</h3> <%= f.text_field :date, placeholder: 'Select a date', onchange: "this.form.submit();" %>
  		<% end %>
  		<br>
  	</div>
 
-<div style='width: 800px;'>
-  <div id="multi_markers" style='width: 800px; height: 400px;'></div>
+<div>
+  <div id="multi_markers" style='width: 700px; height: 400px; margin: 0 auto;'></div>
 </div>
 
 	<div class="row col-lg-offset-2 col-lg-8">
 		<ol>
-			<% @events.each do |event| %>
+			<% if @events_for_date.count > 0 %>
+				<% @events_for_date.each do |event| %>
 					<%= render partial: 'event', locals: {event: event} %>
+				<% end %>
+			<% else %>
+				<p>There are no software development events found. <br> Please select another date. </p>
 			<% end %>
 		</ol>
 	</div>
