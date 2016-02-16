@@ -14,9 +14,9 @@
  		<br>
  	</div>
 
-	<div class="row col-lg-offset-2 col-lg-8">
-		<div id="map-canvas"></div>
-	</div>
+<div style='width: 800px;'>
+  <div id="multi_markers" style='width: 800px; height: 400px;'></div>
+</div>
 
 	<div class="row col-lg-offset-2 col-lg-8">
 		<ol>
@@ -28,13 +28,8 @@
 </div>
 
 <%= javascript_tag do %>
-  window.events = <%= raw @events.map {|event|
-		unless event['venue'].nil? || pretty_date(Time.at(event['time']/1000)) != @date
-  		{ latitude: event['venue']['lat'], longitude: event['venue']['lon'], eventname: event['name'] }
-  	end }.to_json %>
+  window.eventMarkers = <%=raw @hash.to_json %>;
 <% end %>
-
-
 
 
 
