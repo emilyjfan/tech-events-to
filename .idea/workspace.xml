@@ -1,10 +1,7 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <project version="4">
   <component name="ChangeListManager">
-    <list default="true" id="fe9042e3-771f-4dcc-8b42-a1d1523e5231" name="Default" comment="">
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.idea/workspace.xml" afterPath="$PROJECT_DIR$/.idea/workspace.xml" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/app/views/events/index.html.erb" afterPath="$PROJECT_DIR$/app/views/events/index.html.erb" />
-    </list>
+    <list default="true" id="fe9042e3-771f-4dcc-8b42-a1d1523e5231" name="Default" comment="" />
     <ignored path="tech_today.iws" />
     <ignored path=".idea/workspace.xml" />
     <ignored path=".idea/dataSources.local.xml" />
@@ -414,7 +411,7 @@
       <option name="number" value="Default" />
       <updated>1457229324664</updated>
       <workItem from="1457229327246" duration="1571000" />
-      <workItem from="1457231083584" duration="1027000" />
+      <workItem from="1457231083584" duration="1078000" />
     </task>
     <task id="LOCAL-00001" summary="fixed map to only show markers for events with venues">
       <created>1457230501007</created>
@@ -440,11 +437,17 @@
       <option name="project" value="LOCAL" />
       <updated>1457231852677</updated>
     </task>
-    <option name="localTasksCounter" value="5" />
+    <task id="LOCAL-00005" summary="fixing styles">
+      <created>1457232120932</created>
+      <option name="number" value="00005" />
+      <option name="project" value="LOCAL" />
+      <updated>1457232120932</updated>
+    </task>
+    <option name="localTasksCounter" value="6" />
     <servers />
   </component>
   <component name="TimeTrackingManager">
-    <option name="totallyTimeSpent" value="2598000" />
+    <option name="totallyTimeSpent" value="2652000" />
   </component>
   <component name="ToolWindowManager">
     <frame x="0" y="22" width="1280" height="774" extended-state="0" />
