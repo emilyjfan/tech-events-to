@@ -10,12 +10,14 @@ class EventsController < ApplicationController
       Time.at(event['time']/1000).to_date == @date
     end
 
-    @hash = Gmaps4rails.build_markers(@events_for_date) do |event, marker|
-      marker.lat event['venue']['lat'] if event['venue']
-      marker.lng event['venue']['lon'] if event['venue']
-      marker.infowindow event['name']
+    events_with_venues = @events_for_date.delete_if { |k,v| k['venue'] == nil }
+
+    @hash = Gmaps4rails.build_markers(events_with_venues) do |event, marker|
+      if event['venue']
+        marker.lat event['venue']['lat']
+        marker.lng event['venue']['lon']
+        marker.infowindow event['name']
+      end
     end
-
   end
-
 end
